@@ -14,7 +14,7 @@ import java.net.http.HttpResponse;
 import java.util.*;
 
 public class Program {
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws Exception {
 
 
         // fazer a conexao http e buscar o top 250 filmes
@@ -41,9 +41,9 @@ public class Program {
             String titulo = filme.get("title");
 
             InputStream inputStream = new URL(urlImagem).openStream();
-            String nomeArquivo = titulo + ".png";
+            String nomeArquivo = "saida/" + titulo + ".png";
 
-            geradora.criar(inputStream, nomeArquivo);
+            geradora.cria(inputStream, nomeArquivo);
 
             System.out.println(titulo);
             System.out.println();
